@@ -2,6 +2,10 @@ FROM node:20.9.0-alpine AS builder
 
 WORKDIR /usr/src/app
 
+ENV GENERATE_SOURCEMAP=false
+
+ENV NODE_OPTIONS=--max_old_space_size=2048
+
 COPY . /usr/src/app
 
 RUN npm install
